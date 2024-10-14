@@ -3,7 +3,7 @@ title: "Replication of CVCL Model by Vong et al. (2024, Science)"
 author: "Jane Yang (j7yang@ucsd.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
-  pdf:
+  html:
     toc: true
     toc_depth: 3
 ---
