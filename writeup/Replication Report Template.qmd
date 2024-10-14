@@ -3,7 +3,7 @@ title: "Replication of CVCL Model by Vong et al. (2024, Science)"
 author: "Jane Yang (j7yang@ucsd.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
-  html:
+  pdf:
     toc: true
     toc_depth: 3
 ---
@@ -11,10 +11,13 @@ format:
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
 ## Introduction
+I am broadly interested in how children's early vocabulary development intersects with their visual category learning. It fascinates me that a child can easily grasp fundamental properties of objects from just a few examples, while highly trained models often fall short. By integrating infants' visual and linguistic experiences into computational models, I aim to explore the mechanisms through which children learn categories from everyday experiences. In Vong's paper, the authors proposed the Child’s View for Contrastive Learning (CVCL) model, which embodies a form of cross-situational associative learning. This model tracks the co-occurrences of words and their possible visual referents to establish mappings. By reproducing the findings from this paper and understanding the model’s implementation details, I will learn how to use contrastive language-image pre-training models in my own research. Ultimately, my long-term goal is to develop a cognitively realistic model that learns robust representations from children’s everyday experiences.
 
-### Justification
+I will first obtain the SAYCam training dataset from Databrary and download the pre-trained CVCL model from the HuggingFace Hub. I will then randomly sampled the training dataset to be more familiar with its content. I will feed the randomly sampled data into the CVCL model to encode images and utterances to quickly check the model's performance before further implementation. After having some basic understanding of the model, I will follow the paper's analysis pipeline to reproduce the main figures included in the paper. This includes implementing the CLIP model to evaluate different model's performance on children's view image classification. Lastly, I will evaluate the different models on novel visual exemplars that were not included in the training dataset to test their generalization. The main challenge may be in the evaluation stage where I will evaluate models across multiple unique categories on different datasets.
 
-### Analysis pipeline
+Link to GitHub repo: https://github.com/JaneYang07/vong2024_replication
+Link to the original paper: https://www.science.org/doi/abs/10.1126/science.adi1374
+
 
 [No abstract is needed.]  Each replication project will have a straightforward, no frills report of the study and results.  These reports will be publicly available as supplementary material for the aggregate report(s) of the project as a whole.  Also, to maximize project integrity, the intro and methods will be written and critiqued in advance of data collection.  Introductions can be just 1-2 paragraphs clarifying the main idea of the original study, the target finding for replication, and any other essential information.  It will NOT have a literature review -- that is in the original publication. You can write both the introduction and the methods in past tense.  
 
