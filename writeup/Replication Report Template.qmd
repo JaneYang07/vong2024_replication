@@ -20,31 +20,30 @@ Link to the original paper: https://www.science.org/doi/abs/10.1126/science.adi1
 
 ## Methods
 
-### Power Analysis
-
-Original effect size, power analysis for samples to achieve 80%, 90%, 95% power to detect that effect size.  Considerations of feasibility for selecting planned sample size.
-
-### Planned Sample
-
-Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.
-
 ### Materials
 
-All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+"SAYCam-S dataset of longitudinal egocentric video recordings from an individual child, which consists of clips over a 1.5-year period of the child’s life (6 to 25 months), with a total of 600,000 video frames paired with 37,500 transcribed utterances (extracted from 61 hours of video)."
 
 ### Procedure	
 
-Can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+CVCL was trained on the SAYCam-S dataset, using a contrastive learning model architecture that integrates both a vision encoder and a language encoder. Within this structure, images and corresponding utterances are embedded into a joint vector space via modality-specific neural networks. During training, the model learns by adjusting similarity metrics: matched image-utterance pairs are drawn closer (increased cosine similarity), while mismatched pairs are pushed apart.
+
+After the training phase, CVCL was evaluated alongside several alternative models. The evaluation process adapted a well-known child testing procedure, prompting models with a target category label to identify the corresponding visual referent among four candidate images. This selection relied on cosine similarity to the label, allowing for a straightforward assessment of model performance. The models were tested on the Labeled-S dataset, an evaluation set with frames annotated for 22 visual concepts that were consistently observed across both the visual and linguistic experiences of the child.
+
+Among the alternative models, CVCL-Shuffled was trained on a dataset where co-occurring frames and utterances were randomly shuffled, breaking the original links between frames and utterances while retaining information from each modality independently. Another model, CVCL-Random Features, was designed to test the reliance on strong visual embeddings by randomly initializing and freezing the vision encoder during training. Additionally, a Linear Probe model was developed by fitting a linear classifier on top of the frozen pretrained vision encoder, which had been initialized through self-supervision.
+
+To assess out-of-distribution generalization, CVCL’s performance was tested on the Konkle Objects dataset. This dataset comprises 64 visual concepts, each with a corresponding label in CVCL’s vocabulary, presented as single-object images on a white background.
 
 ### Analysis Plan
 
-Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.  
+The primary goal of this project is to deepen my understanding of implementing the CVCL model and its alternatives, with a focus on model training and evaluation. Following the procedures outlined above, I will train CVCL and the alternative models accordingly. Evaluation will be conducted using the Labeled-S and Konkle Objects datasets, applying a four-alternative forced-choice (4AFC) image recognition test for accuracy assessment.
 
-**Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+Additionally, I plan to generate t-SNE plots based on the cosine similarity of text and image embeddings, offering a visual representation of the alignment between vision and language from a child’s perspective.
+
 
 ### Differences from Original Study
 
-Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect.
+I will try to follow the training procedure of CVCL and the alternative models, however, the models may not perform exactly as described in the paper. I anticipate the classification accuracy across categories during evaluation will look sightly different than the results in the paper.
 
 ### Methods Addendum (Post Data Collection)
 
